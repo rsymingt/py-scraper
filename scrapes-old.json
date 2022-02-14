@@ -1,0 +1,94 @@
+[
+    {
+        "title": "Newegg DDR5",
+        "url": "https://www.newegg.ca/p/pl?d=ddr5",
+        "loadmore": true, 
+        "pageSelector": "#load_more", 
+        "rootSelector": ".item-cell", 
+        "urlSelector": "title",
+        "selectors": {
+            "title": ".item-title",
+            "price": ".price-current",
+            "availability": ".item-promo"
+        },
+        "filterDict": {
+            "title": [
+                ["32GB", true],
+                ["\\and", false]
+            ],
+            "availability": [
+                ["OUT OF STOCK", false]
+            ]
+        },
+        "notifyFilter": ["price", "title"],
+        "maxPages": 0
+    },
+    {
+        "title": "Canada Computers DDR5",
+        "url": "https://www.canadacomputers.com/search/results_details.php?language=en&keywords=ddr5",
+        "loadmore": true, 
+        "pageSelector": "#load_more", 
+        "rootSelector": ".productTemplate", 
+        "urlSelector": "link",
+        "selectors": {
+            "title": ".productTemplate_title",
+            "link": ".productTemplate_title > a",
+            "price": ".pq-hdr-product_price",
+            "extra": ".addCartSearch"
+        },
+        "filterDict": {
+            "title": [
+                ["\\d+MHz", true],
+                ["32GB", true],
+                ["\\+", false]
+            ]
+        },
+        "notifyFilter": ["price", "title"],
+        "maxPages": "inf",
+        "_scrape": {
+            "url": "link",
+            "rootSelector": ".page-product_info.container", 
+            "selectors": {
+                "availability": ".pi-prod-availability",
+                "onlineStock": ".pi-prod-availability > span:first-of-type > i.fa-check",
+                "storeStock": ".pi-prod-availability > span:nth-of-type(2) > i.fa-check"
+            },
+            "filterDict": {
+            }
+        }
+    },
+    {
+        "title": "Best Buy DDR5",
+        "url": "https://www.bestbuy.ca/en-ca/search?search=ddr5",
+        "loadmore": true, 
+        "pageSelector": "main > div > button > span", 
+        "rootSelector": ".x-productListItem", 
+        "urlSelector": "link",
+        "selectors": {
+            "title": "[data-automation=\"productItemName\"]",
+            "price": "[data-automation=\"product-price\"] > :first-child",
+            "link": "div > a"
+        },
+        "filterDict": {
+            "title": [
+                ["\\d+MHz", true],
+                ["32GB", true]
+            ]
+        },
+        "notifyFilter": ["price", "title"],
+        "maxPages": 3,
+        "_scrape": {
+            "url": "link",
+            "rootSelector": ".x-page-content", 
+            "selectors": {
+                "availability": ".x-pdp-availability-online"
+            },
+            "filterDict": {
+                "availability": [
+                    ["Coming soon", false],
+                    ["Sold out online", false]
+                ]
+            }
+        }
+    }
+]

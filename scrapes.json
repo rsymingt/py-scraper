@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Dell RAM",
+        "url": "https://www.dell.com/en-ca/work/shop/dell-memory-upgrade-32gb-2rx8-ddr4-sodimm-3466mhz-superspeed/apd/ab742087/memory#tabs_section",
+        "pages": false,
+        "loadmore": false, 
+        "pageSelector": "", 
+        "rootSelector": "#hero_section", 
+        "urlSelector": "title",
+        "selectors": {
+            "title": "#page-title > .pg-title",
+            "price": ".ps-simplified-price-container",
+            "availability": ".ps-accessory-stock-level"
+        },
+        "filterDict": {
+            "availability": [
+                ["Out of Stock", false]
+            ]
+        },
+        "notifyFilter": ["price", "title"],
+        "maxPages": 0
+    }
+]
